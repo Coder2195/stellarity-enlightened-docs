@@ -1,4 +1,3 @@
-import { readFileSync } from "node:fs";
 import { defineRoutes } from "vitepress";
 import { EN_US } from "../translations";
 
@@ -13,8 +12,7 @@ export default defineRoutes({
 			return {
 				params: {
 					biome: kebabBiome,
-					title: EN_US[`biome.stellarity.${biome.replace("-", "_")}`],
-					data: JSON.parse(readFileSync(biomeFile, "utf-8")),
+					title: EN_US[`biome.stellarity.${biome}`],
 				},
 			};
 		});

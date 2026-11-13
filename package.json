@@ -11,5 +11,6 @@
 		"vitepress": "^2.0.0-alpha.21",
 		"vitepress-sidebar": "^1.41.0",
 		"vue": "^3.5.45"
-	}
+	},
+	"type": "module"
 }

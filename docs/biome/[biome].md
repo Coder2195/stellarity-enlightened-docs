@@ -1,7 +1,15 @@
-# {{ $params.title }} {#title}
+<script setup lang="ts">
 
-Temperature: {{ $params.data.temperature }}
+import { useData } from 'vitepress';
+import { data as biomes } from './biome.data';
+import { computed } from "vue";
 
-Downfall: {{ $params.data.downfall }}
+const { params } = useData(); 
+const biome = computed(() => biomes[params.value?.biome])
 
-Rains/Snows: {{ $params.data.has_precipitation }}
+</script>
+
+
+# {{ $params?.title }} {#title}
+
+Temperature: {{ biome.temperature }} 

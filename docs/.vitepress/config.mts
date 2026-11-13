@@ -25,6 +25,7 @@ export default defineConfig(
 			title: "Stellarity Enlightened",
 			description: "Docs for the Stellarity Enlightened mod",
 			themeConfig: {
+				logo: "/icon.png",
 				// https://vitepress.dev/reference/default-theme-config
 				nav: [{ text: "Docs", link: "/home" }],
 

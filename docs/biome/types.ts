@@ -1,3 +1,7 @@
+export interface BiomeExtended extends Biome {}
+
+// generated
+
 export interface Biome {
 	attributes: Attributes;
 	carvers: Carver[];
