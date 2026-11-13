@@ -3,7 +3,7 @@
 	"packageManager": "yarn@4.18.1",
 	"scripts": {
 		"dev": "vitepress dev pages",
-		"build": "vitepress build pages",
+		"build": "chmod +x build.sh && ./build.sh && vitepress build pages",
 		"preview": "vitepress preview pages"
 	},
 	"devDependencies": {

@@ -30,7 +30,6 @@ dist
 cache
 temp
 examples-temp
-node_modules
 pnpm-global
 TODOs.md
 *.timestamp-*.mjs
@@ -38,3 +37,4 @@ TODOs.md
 
 # base fixture builds
 __tests__/base/fixture/.vitepress/dist-*
+public/mod-data/*
