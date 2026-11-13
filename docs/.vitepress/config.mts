@@ -4,11 +4,19 @@ import type { VitePressSidebarOptions } from "vitepress-sidebar/types";
 
 // https://vitepress.dev/reference/site-config
 
-const sidebarConfig: VitePressSidebarOptions = {
-	documentRootPath: "/pages",
-	collapsed: false,
-	capitalizeFirst: true,
-};
+const sidebarConfig: VitePressSidebarOptions[] = [
+	{
+		documentRootPath: "/docs",
+		dynamicRouteTitleParam: "title",
+		includeDynamicRoutes: true,
+		manualSortFileNameByPriority: ["home.md", "faq.md", "biome"],
+		collapsed: false,
+		capitalizeFirst: true,
+		useTitleFromFileHeading: true,
+		useTitleFromFrontmatter: true,
+		useFolderTitleFromIndexFile: true,
+	},
+];
 
 export default defineConfig(
 	withSidebar(

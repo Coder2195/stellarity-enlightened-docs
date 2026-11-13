@@ -5,3 +5,9 @@
 		"Inter", "Apple Color Emoji", "Noto Color Emoji", -apple-system,
 		BlinkMacSystemFont, sans-serif;
 }
+
+#VPSidebarNav .group + .group {
+	margin-top: 16px;
+	padding-top: 16px;
+	border-top: 1px solid var(--vp-c-divider); /* Optional divider line */
+}

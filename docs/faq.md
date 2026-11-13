@@ -1,4 +1,8 @@
-# FAQ
+---
+title: FAQ
+---
+
+# {{ $frontmatter.title }} {#title}
 
 ## What versions are supported?
 As of the time of this writing, only the latest version of Minecraft will be supported, with Fabric being the sole modloader.
