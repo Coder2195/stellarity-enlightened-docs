@@ -37,4 +37,4 @@ TODOs.md
 
 # base fixture builds
 __tests__/base/fixture/.vitepress/dist-*
-public/mod-data/*
+pages/public/mod-data/*
