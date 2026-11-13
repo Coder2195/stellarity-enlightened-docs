@@ -21,6 +21,7 @@ const sidebarConfig: VitePressSidebarOptions[] = [
 export default defineConfig(
 	withSidebar(
 		{
+			cleanUrls: true,
 			title: "Stellarity Enlightened",
 			description: "Docs for the Stellarity Enlightened mod",
 			themeConfig: {
