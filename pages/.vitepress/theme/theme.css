@@ -1,0 +1,7 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Color+Emoji&display=swap");
+
+:root {
+	--vp-font-family-base:
+		"Inter", "Apple Color Emoji", "Noto Color Emoji", -apple-system,
+		BlinkMacSystemFont, sans-serif;
+}

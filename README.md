@@ -1,1 +1,1 @@
-# docs
+# stellarity-enlightened-docs
