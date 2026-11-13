@@ -40,6 +40,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@davidingplus/vitepress-image-viewer@npm:^1.1.5":
+  version: 1.1.5
+  resolution: "@davidingplus/vitepress-image-viewer@npm:1.1.5"
+  checksum: 10c0/426ff3e3891917f2a7a3d7f20048cbcd8f0073b2982c9ce033c010032d3a08e6118636bf84584bb3af1b3b2753ed83402bef3c6579fd3fb32d02844c3bd84907
+  languageName: node
+  linkType: hard
+
 "@docsearch/css@npm:^4.7.1":
   version: 4.7.1
   resolution: "@docsearch/css@npm:4.7.1"
@@ -1448,6 +1455,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "stellarity-enlightened-docs@workspace:."
   dependencies:
+    "@davidingplus/vitepress-image-viewer": "npm:^1.1.5"
     "@types/node": "npm:^26.6.6"
     vitepress: "npm:^2.0.0-alpha.21"
     vitepress-sidebar: "npm:^1.41.0"

@@ -1,4 +1,8 @@
-export interface BiomeExtended extends Biome {}
+export interface BiomeExtension {
+	image: string;
+}
+
+export type BiomeExtended = Biome & BiomeExtension;
 
 // generated
 

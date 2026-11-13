@@ -12,4 +12,10 @@ const biome = computed(() => biomes[params.value?.biome])
 
 # {{ $params?.title }} {#title}
 
+<img :src="biome.image" :alt="`Preview of the ${ $params?.title }`" />
+
 Temperature: {{ biome.temperature }} 
+
+Downfall: {{ biome.downfall }}
+
+Has Precipitation: {{ biome.has_precipitation  ? "Yes" : "No" }}
