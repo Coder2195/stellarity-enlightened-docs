@@ -7,7 +7,10 @@
 }
 
 #VPSidebarNav .group + .group {
-	margin-top: 16px;
-	padding-top: 16px;
+	padding-top: 1em;
 	border-top: 1px solid var(--vp-c-divider); /* Optional divider line */
+}
+
+img {
+	border-radius: 1em;
 }
