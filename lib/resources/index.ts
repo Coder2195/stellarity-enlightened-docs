@@ -90,13 +90,7 @@ export class ResourceManager
 	) {
 		const promises: Promise<void>[] = [];
 		folder.forEach((path, file) => {
-			if (
-				file.dir ||
-				!path.endsWith(".json") ||
-				path.includes("_all") ||
-				path.includes("_list")
-			)
-				return;
+			if (file.dir || !path.endsWith(".json")) return;
 			const id = path.replace(/\.json$/, "");
 			promises.push(
 				file.async("text").then((data) => callback(id, JSON.parse(data))),
@@ -153,6 +147,7 @@ export class ResourceManager
 	public getItemModel(id: Identifier | string): ItemModel | null {
 		return this.itemModels[id.toString()];
 	}
+
 	public getItemComponents(id: Identifier | string): Map<string, NbtTag> {
 		return new Map();
 	}

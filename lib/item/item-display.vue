@@ -15,15 +15,24 @@ onMounted(async () => {
 
 	const itemRenderer = new ItemRenderer(
 		ctx,
-		new ItemStack(new Identifier("minecraft", "diamond_sword"), 1),
+		new ItemStack(new Identifier("minecraft", "dirt"), 1),
 		resources,
+		{ display_context: "gui" },
 	);
+
 	itemRenderer.setViewport(0, 0, 500, 500);
 	itemRenderer.drawItem();
 	console.log(itemRenderer);
 	console.log(resources);
-
-	console.log(ctx);
+	console.log(
+		resources
+			.getItemModel("minecraft:dirt")
+			?.getMesh(
+				new ItemStack(new Identifier("minecraft", "dirt"), 1),
+				resources,
+				{ display_context: "gui" },
+			),
+	);
 });
 </script>
 
