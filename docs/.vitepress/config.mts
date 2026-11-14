@@ -21,6 +21,7 @@ const sidebarConfig: VitePressSidebarOptions[] = [
 export default defineConfig(
 	withSidebar(
 		{
+			head: [["meta", { property: "og:image", content: "/icon.png" }]],
 			cleanUrls: true,
 			title: "Stellarity Enlightened",
 			description: "Docs for the Stellarity Enlightened mod",

@@ -6,6 +6,9 @@ hero:
   name: "Stellarity Enlightened"
   text: "Information on the Fabric port of Stellarity"
   tagline: I am at 25K lines of Java and nowhere close to finishing...
+  image:
+    src: /icon.png
+    alt: Stellarity Enlightened Logo
   actions:
     - theme: brand
       text: Explore the Mod!
@@ -28,4 +31,7 @@ features:
   - title: Trans 🏳️‍⚧️ Coded
     details: :3
 ---
+
+## Yea idk what else to put here...
+![Stellarity Enlightened Banner](/images/banner.jpg)
 

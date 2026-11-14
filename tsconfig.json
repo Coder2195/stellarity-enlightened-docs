@@ -21,12 +21,9 @@
 		"docs/**/*.vue",
 		"docs/**/*.md",
 		"docs/.vitepress/**/*.ts",
-		"docs/.vitepress/**/*.vue"
+		"docs/.vitepress/**/*.vue",
+		"README.md",
+		"lib/**/*.ts"
 	],
-	"exclude": [
-		"node_modules",
-		"docs/.vitepress/dist",
-		"docs/.vitepress/cache",
-		"README.md"
-	]
+	"exclude": ["node_modules", "docs/.vitepress/dist", "docs/.vitepress/cache"]
 }

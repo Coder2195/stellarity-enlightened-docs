@@ -51,43 +51,52 @@ export class ResourceManager
 	public async loadFromZip(url: string) {
 		const assetsBuffer = await (await fetch(url)).arrayBuffer();
 		const assets = await jszip.loadAsync(assetsBuffer);
-		for (const namespace of ["minecraft", "stellarity"]) {
-			await this.loadFromFolderJson(
-				assets.folder(`${namespace}/models`)!,
-				async (id, data) => {
-					this.blockModels[new Identifier(namespace, id).toString()] =
-						BlockModel.fromJson(data);
-				},
-			);
-			await this.loadFromFolderJson(
-				assets.folder(`${namespace}/blockstates`)!,
-				async (id, data) => {
-					this.blockDefinitions[new Identifier(namespace, id).toString()] =
-						BlockDefinition.fromJson(data);
-				},
-			);
-			await this.loadFromFolderPng(
-				assets.folder(`${namespace}/textures/`)!,
-				async (id, data) => {
-					this.textures[new Identifier(namespace, id).toString()] = data;
-				},
-			);
-			await this.loadFromFolderJson(
-				assets.folder(`${namespace}/items/`)!,
-				async (id, data) => {
-					this.itemModels[new Identifier(namespace, id).toString()] =
-						ItemModel.fromJson(data.model);
-				},
-			);
-		}
+		await Promise.all(
+			["minecraft", "stellarity"].flatMap((namespace) => [
+				this.loadFromFolderJson(
+					assets.folder(`${namespace}/models`),
+					async (id, data) => {
+						this.blockModels[new Identifier(namespace, id).toString()] =
+							BlockModel.fromJson(data);
+					},
+				),
+				this.loadFromFolderJson(
+					assets.folder(`${namespace}/blockstates`),
+					async (id, data) => {
+						this.blockDefinitions[new Identifier(namespace, id).toString()] =
+							BlockDefinition.fromJson(data);
+					},
+				),
+				this.loadFromFolderPng(
+					assets.folder(`${namespace}/textures/`),
+					async (id, data) => {
+						this.textures[new Identifier(namespace, id).toString()] = data;
+					},
+				).then(() => this.generateAltas()),
+				this.loadFromFolderJson(
+					assets.folder(`${namespace}/items/`),
+					async (id, data) => {
+						this.itemModels[new Identifier(namespace, id).toString()] =
+							ItemModel.fromJson(data.model);
+					},
+				),
+			]),
+		);
 
-		this.generateAltas();
+		for (const model of Object.values(this.blockModels)) {
+			model.flatten(this);
+		}
 	}
 
-	private loadFromFolderJson(
-		folder: jszip,
-		callback: (id: string, data: any) => Promise<void>,
+	// biome-ignore lint/suspicious/noExplicitAny: misode usually takes in any
+	private async loadFromFolderJson<T = any>(
+		folder: jszip | null,
+		callback: (id: string, data: T) => Promise<void>,
 	) {
+		if (folder == null) {
+			console.error("Folder is null");
+			return [];
+		}
 		const promises: Promise<void>[] = [];
 		folder.forEach((path, file) => {
 			if (file.dir || !path.endsWith(".json")) return;
@@ -99,10 +108,14 @@ export class ResourceManager
 		return Promise.all(promises);
 	}
 
-	private loadFromFolderPng(
-		folder: jszip,
+	private async loadFromFolderPng(
+		folder: jszip | null,
 		callback: (id: string, data: Blob) => Promise<void>,
 	) {
+		if (folder == null) {
+			console.error("Folder is null");
+			return [];
+		}
 		const promises: Promise<void>[] = [];
 		folder.forEach((path, file) => {
 			if (file.dir || !path.endsWith(".png")) return;
@@ -126,8 +139,10 @@ export class ResourceManager
 	public getTextureAtlas(): ImageData {
 		return this.textureAltas.getTextureAtlas();
 	}
-	public getTextureUV(id: Identifier) {
-		return this.textureAltas.getTextureUV(id);
+	public getTextureUV(id: Identifier | string) {
+		return this.textureAltas.getTextureUV(
+			typeof id === "string" ? Identifier.parse(id) : id,
+		);
 	}
 	public getPixelSize?(): number {
 		// idk?
