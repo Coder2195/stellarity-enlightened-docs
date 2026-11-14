@@ -11,6 +11,12 @@
 	border-top: 1px solid var(--vp-c-divider); /* Optional divider line */
 }
 
-img {
+img,
+canvas {
 	border-radius: 1em;
+	overflow: hidden;
+}
+
+canvas {
+	max-width: 100%;
 }
