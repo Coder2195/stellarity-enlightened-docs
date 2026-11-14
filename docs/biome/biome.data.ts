@@ -39,6 +39,10 @@ const BIOME_EXTENSIONS: Record<string, BiomeExtension> = {
 		image:
 			"https://cdn.modrinth.com/data/45WspQ04/images/0a6ff5d9a8af1d76c5e8664b826a74f05c4ac162.png",
 	},
+	"endless-dunes": {
+		image:
+			"https://cdn.modrinth.com/data/45WspQ04/images/67b37c5d9b84f895139d8088354ab09f2a285ff2.png"
+	},
 	"fiery-hills": {
 		image:
 			"https://cdn.modrinth.com/data/45WspQ04/images/3c015482326cb3efba22f409f2f6ed42fb0638cc.png",
