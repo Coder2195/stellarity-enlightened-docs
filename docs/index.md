@@ -4,8 +4,8 @@ layout: home
 
 hero:
   name: "Stellarity Enlightened"
-  text: "Information on the Fabric port of Stellarity"
-  tagline: I am at 25K lines of Java and nowhere close to finishing...
+  text: "A Fabric port of Stellarity"
+  tagline: 25K lines of Java and I'm nowhere close to finishing...
   image:
     src: /icon.png
     alt: Stellarity Enlightened Logo

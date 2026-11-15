@@ -28,7 +28,13 @@ export default defineConfig(
 			themeConfig: {
 				logo: "/icon.png",
 				// https://vitepress.dev/reference/default-theme-config
-				nav: [{ text: "Docs", link: "/home" }],
+				nav: [
+					{ text: "Docs", link: "/home" },
+					{
+						text: "Report Bugs",
+						link: "https://github.com/coder2195/stellarity-enlightened/issues/new",
+					},
+				],
 
 				socialLinks: [
 					{
@@ -44,6 +50,11 @@ export default defineConfig(
 						link: "https://www.curseforge.com/minecraft/mc-mods/stellarity-enlightened",
 					},
 				],
+				footer: {
+					message:
+						"Brought to you with ❤️ by <a href='https://github.com/Coder2195' target='_blank'>Coder2195</a>",
+					copyright: "Copyleft 🄯 2026 - GPL-3.0",
+				},
 			},
 		},
 		sidebarConfig,
